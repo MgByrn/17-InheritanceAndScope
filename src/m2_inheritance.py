@@ -1,5 +1,5 @@
 ###############################################################################
-# TODO: 1. (4 pts)
+# DONE: 1. (4 pts)
 #
 #   For this module, we are going to build off our Pet class that we created in
 #   m2 of the session 16 coding exercises.
@@ -26,9 +26,31 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+class Pet:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def __str__(self):
+        return f"Name: {self.name}, Age: {self.age}"
+
+    def speak(self):
+        print(f"{self.name}: Boo! ")
+class Dog(Pet):
+    def fetch(self):
+        print(f"{self.name} ran to get the stick!")
+
+    def speak(self):
+        print(f"{self.name}: Bark! Bark! Bark!")
+
+p1 = Pet('Fido',4)
+print(p1)
+p1.speak()
+
+
 
 ###############################################################################
-# TODO: 2. (4 pts)
+# DONE: 2. (4 pts)
 #
 #   Now, write your own class of whatever type of pet you wish.
 #
@@ -46,6 +68,22 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+class Bird(Pet):
+    def __init__(self, name, age, species, color):
+        super().__init__(name, age)
+        self.species = species
+        self.color = color
+
+    def fly(self):
+        print(f"{self.name}, the {self.color} {self.species}, flies.")
+
+    def chirp(self):
+        print(f"{self.name}: Chirp chirp!")
+
+b1 = Bird('George', 2, 'Parrot', 'green')
+print(b1)
+b1.fly()
+b1.chirp()
 
 ###############################################################################
 # TODO: 3. (4 pts)
@@ -71,4 +109,16 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+def main():
+    dog = Dog('Buddy', 3)
+    bird = Bird('George', 1, 'Parrot', 'Green')
 
+    print(dog)
+    print(bird)
+
+    dog.speak()
+    bird.speak() 
+    dog.fetch()
+    bird.fly()
+
+main()
